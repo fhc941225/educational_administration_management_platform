@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="educational_administration_management_platform:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="myvali-admin.war">
+      <element id="artifact" artifact-name="educational_administration_management_platform:war exploded" />
+    </root>
+  </artifact>
+</component>

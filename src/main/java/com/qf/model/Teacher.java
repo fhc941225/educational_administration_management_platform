@@ -2,15 +2,24 @@ package com.qf.model;
 
 public class Teacher {
     private String tea_id;
-    private Integer tea_number;
+    private String tea_number;
     private String tea_name;
     private String tea_birthday;
-    private Integer tea_card;
+    private String tea_card;
     private String tea_address;
-    private Integer tea_phone;
+    private String tea_phone;
     private String tea_courses;
     private String tea_pwd;
     private Integer tea_state;
+    private String tea_photo;
+
+    public String getTea_photo() {
+        return tea_photo;
+    }
+
+    public void setTea_photo(String tea_photo) {
+        this.tea_photo = tea_photo;
+    }
 
     public String getTea_id() {
         return tea_id;
@@ -20,11 +29,11 @@ public class Teacher {
         this.tea_id = tea_id;
     }
 
-    public Integer getTea_number() {
+    public String getTea_number() {
         return tea_number;
     }
 
-    public void setTea_number(Integer tea_number) {
+    public void setTea_number(String tea_number) {
         this.tea_number = tea_number;
     }
 
@@ -44,11 +53,11 @@ public class Teacher {
         this.tea_birthday = tea_birthday;
     }
 
-    public Integer getTea_card() {
+    public String getTea_card() {
         return tea_card;
     }
 
-    public void setTea_card(Integer tea_card) {
+    public void setTea_card(String tea_card) {
         this.tea_card = tea_card;
     }
 
@@ -60,11 +69,11 @@ public class Teacher {
         this.tea_address = tea_address;
     }
 
-    public Integer getTea_phone() {
+    public String getTea_phone() {
         return tea_phone;
     }
 
-    public void setTea_phone(Integer tea_phone) {
+    public void setTea_phone(String tea_phone) {
         this.tea_phone = tea_phone;
     }
 
@@ -92,19 +101,24 @@ public class Teacher {
         this.tea_state = tea_state;
     }
 
+    public Teacher() {
+        super();
+    }
+
     @Override
     public String toString() {
         return "Teacher{" +
                 "tea_id='" + tea_id + '\'' +
-                ", tea_number=" + tea_number +
+                ", tea_number='" + tea_number + '\'' +
                 ", tea_name='" + tea_name + '\'' +
                 ", tea_birthday='" + tea_birthday + '\'' +
-                ", tea_card=" + tea_card +
+                ", tea_card='" + tea_card + '\'' +
                 ", tea_address='" + tea_address + '\'' +
-                ", tea_phone=" + tea_phone +
+                ", tea_phone='" + tea_phone + '\'' +
                 ", tea_courses='" + tea_courses + '\'' +
                 ", tea_pwd='" + tea_pwd + '\'' +
                 ", tea_state=" + tea_state +
+                ", tea_photo='" + tea_photo + '\'' +
                 '}';
     }
 }

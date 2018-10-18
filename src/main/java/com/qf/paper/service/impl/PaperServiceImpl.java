@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -24,6 +25,8 @@ import java.util.UUID;
 @Service
 @Transactional
 public class PaperServiceImpl implements PaperService {
+
+    private static final String DISK_PATH = "F:/paper/";
 
     @Autowired
     private PaperMapper mapper;
@@ -39,11 +42,7 @@ public class PaperServiceImpl implements PaperService {
     //改论文
     @Override
     public void updatePaper(Paper paper, MultipartFile paper_file) {
-        //删除原文件
-        File file = new File(paper.getPaper_url());
-        if(file.exists()&&file.isFile()){
-            file.delete();
-        }
+        deletePaperFile(paper.getPaper_url());  //删除原文件
         Paper newPaper = upload(paper, paper_file); //上传新文件
         mapper.updatePaper(newPaper);
     }
@@ -57,11 +56,7 @@ public class PaperServiceImpl implements PaperService {
     //删
     @Override
     public void deletePaper(String paper_id, String paper_file) {
-        //删除文件
-        File file = new File(DISK_PATH + paper_file);
-        if(file.exists()&&file.isFile()){
-            file.delete();
-        }
+        deletePaperFile(paper_file);    //删除文件
         mapper.deletePaper(paper_id);
     }
 
@@ -97,11 +92,18 @@ public class PaperServiceImpl implements PaperService {
     //下载文件方法
     @Transactional(readOnly = true)
     public ResponseEntity<byte[]> downloadPaper(String paper_file){
-        //1.设置响应头信息:filename属性用来设置下载后的文件名称
+        //解决中文乱码问题
+        String fileName = "";
+        try {
+            fileName = new String(paper_file.getBytes("utf-8"),"iso-8859-1");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        //设置响应头信息:filename属性用来设置下载后的文件名称（截取了源文件名）
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "attachement;filename=" + paper_file);
+        headers.add("Content-Disposition", "attachement;filename=" + fileName.substring(17));
         HttpStatus statusCode = HttpStatus.OK;  //2.设置响应状态码200
-        //3.创建输入流，读取相应文件
+        //创建输入流，读取相应文件
         FileInputStream fis = null;
         byte[] bytes = new byte[0];
         try {
@@ -128,9 +130,8 @@ public class PaperServiceImpl implements PaperService {
         Date date = new Date();
         paper.setPaper_updataTime(new SimpleDateFormat("yyyy-MM-dd").format(date)); //添加当前时间
         String originalFilename = paper_file.getOriginalFilename(); //源文件名
-        String[] split = originalFilename.split("\\."); //取源文件后缀
         String newFilename = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(date) +
-                "." + split[split.length-1]; //拼接新文件名防止重名
+                originalFilename; //拼接新文件名防止重名
         String path = DISK_PATH + newFilename; //文件绝对路径
         paper.setPaper_url(newFilename);   //添加文件存放路径
         //写入文件
@@ -141,6 +142,15 @@ public class PaperServiceImpl implements PaperService {
             e.printStackTrace();
         }
         return paper;
+    }
+
+    //删除文件方法
+    @Transactional(readOnly = true)
+    private void deletePaperFile(String path){
+        File file = new File(DISK_PATH + path);
+        if(file.exists()&&file.isFile()){
+            file.delete();
+        }
     }
 
 }

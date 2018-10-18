@@ -9,6 +9,8 @@ public class Paper {
     private String paper_url;
     private String paper_updataTime;
     private Integer paper_level;
+    private Student student;
+    private Teacher teacher;
 
     public String getPaper_id() {
         return paper_id;
@@ -74,6 +76,22 @@ public class Paper {
         this.paper_level = paper_level;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
     @Override
     public String toString() {
         return "Paper{" +
@@ -85,6 +103,8 @@ public class Paper {
                 ", paper_url='" + paper_url + '\'' +
                 ", paper_updataTime='" + paper_updataTime + '\'' +
                 ", paper_level=" + paper_level +
+                ", student=" + student +
+                ", teacher=" + teacher +
                 '}';
     }
 }

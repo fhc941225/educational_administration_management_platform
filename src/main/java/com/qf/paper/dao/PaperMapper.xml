@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.paper.dao.PaperMapper">
+
+    <!-- 查询列名 -->
+    <sql id="cols">
+        p.paper_id,p.paper_student,p.paper_teacher,p.paper_title,p.paper_introduction,
+          p.paper_url,p.paper_updataTime,p.paper_level
+    </sql>
+
+    <!--连接查询ResuktMap-->
+    <resultMap id="paperResultMap" type="Paper">
+        <id column="paper_id" property="paper_id"/>
+        <result column="paper_student" property="paper_student"/>
+        <result column="paper_teacher" property="paper_teacher"/>
+        <result column="paper_title" property="paper_title"/>
+        <result column="paper_introduction" property="paper_introduction"/>
+        <result column="paper_url" property="paper_url"/>
+        <result column="paper_updataTime" property="paper_updataTime"/>
+        <result column="paper_level" property="paper_level"/>
+        <association property="student" javaType="Student">
+            <id column="stu_id" property="stu_id"/>
+            <result column="stu_name" property="stu_name"/>
+        </association>
+        <association property="teacher" javaType="Teacher">
+            <id column="tea_id" property="tea_id"/>
+            <result column="tea_name" property="tea_name"/>
+        </association>
+    </resultMap>
+
+    <!--添加论文-->
+    <insert id="insertPaper" parameterType="Paper">
+        insert into paper values (#{paper_id},#{paper_student},#{paper_teacher},#{paper_title},
+          #{paper_introduction},#{paper_url},#{paper_updataTime},#{paper_level})
+    </insert>
+
+    <!--修改论文-->
+    <update id="updatePaper" parameterType="Paper">
+        update paper set paper_title=#{paper_title},paper_introduction=#{paper_introduction},paper_url=#{paper_url},
+          paper_updataTime=#{paper_updataTime},paper_level=#{paper_level} where paper_id=#{paper_id}
+    </update>
+
+    <!--论文打分(level)-->
+    <update id="updateLevel" parameterType="Paper">
+        update paper set paper_level=#{paper_level} where paper_id=#{paper_id}
+    </update>
+
+    <!--删除论文-->
+    <delete id="deletePaper" parameterType="String">
+        delete from paper where paper_id=#{paper_id}
+    </delete>
+
+    <!--查某个学生提交论文总数-->
+    <select id="selectCountByStudent" parameterType="com.alibaba.fastjson.JSONObject" resultType="Long">
+        select count(paper_id) from paper
+        <where>
+            paper_student=#{studentId}
+            <if test="search != '' and search != null">
+               and paper_title like "%${search}%"
+            </if>
+        </where>
+    </select>
+
+    <!--查某个学生提交论文集合-->
+    <select id="selectAllByStudent" parameterType="com.alibaba.fastjson.JSONObject" resultMap="paperResultMap">
+        select <include refid="cols"/>,t.tea_id,t.tea_name from paper p
+        left join teacher t on p.paper_teacher = t.tea_id
+        <where>
+            p.paper_student=#{studentId}
+            <if test="search != '' and search != null">
+                and p.paper_title like "%${search}%"
+            </if>
+        </where>
+        order by p.paper_updataTime desc limit #{offset},#{limit}
+    </select>
+
+    <!--查某个老师要查看的论文总数-->
+    <select id="selectCountByTeacher" parameterType="com.alibaba.fastjson.JSONObject" resultType="Long">
+        select count(paper_id) from paper
+        <where>
+            paper_teacher=#{teacherId}
+            <if test="search != '' and search != null">
+                and paper_title like "%${search}%"
+            </if>
+        </where>
+    </select>
+
+    <!--查某个老师要查看的论文集合-->
+    <select id="selectAllByTeacher" parameterType="com.alibaba.fastjson.JSONObject" resultMap="paperResultMap">
+        select <include refid="cols"/>,s.stu_id,s.stu_name from paper p
+        left join student s on p.paper_student = s.stu_id
+        <where>
+            p.paper_teacher=#{teacherId}
+            <if test="search != '' and search != null">
+                and p.paper_title like "%${search}%"
+            </if>
+        </where>
+        order by p.paper_updataTime desc limit #{offset},#{limit}
+    </select>
+
+    <!--查所有老师-->
+    <select id="selectAllTeacher" resultType="Teacher">
+        select tea_id,tea_name from teacher
+    </select>
+
+</mapper>

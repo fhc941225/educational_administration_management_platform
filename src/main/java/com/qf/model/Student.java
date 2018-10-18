@@ -12,6 +12,16 @@ public class Student {
     private String stu_major;
     private String stu_pwd;
     private Integer state;
+    private String stu_photo;
+
+    public String getStu_photo() {
+        return stu_photo;
+    }
+
+    public void setStu_photo(String stu_photo) {
+        this.stu_photo = stu_photo;
+    }
+
     public String getStu_id() {
         return stu_id;
     }

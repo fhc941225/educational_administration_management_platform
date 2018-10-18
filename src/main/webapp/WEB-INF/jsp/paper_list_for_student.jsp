@@ -114,7 +114,7 @@
                         </div>
                         <div class="form-group">
                             <label for="paper_introduction" class="col-sm-4 control-label">论文介绍</label>
-                            <textarea id="paper_introduction" name="paper_introduction" class="form-control"></textarea>
+                            <textarea id="paper_introduction" rows="8px" name="paper_introduction" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="paper_file" class="col-sm-4 control-label">论文上传</label>
@@ -152,7 +152,7 @@
                         </div>
                         <div class="form-group">
                             <label for="modify_paper_introduction" class="col-sm-4 control-label">论文介绍</label>
-                            <textarea id="modify_paper_introduction" name="paper_introduction" class="form-control"></textarea>
+                            <textarea id="modify_paper_introduction" rows="8px" name="paper_introduction" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="modify_paper_file" class="col-sm-4 control-label">重新上传论文</label>

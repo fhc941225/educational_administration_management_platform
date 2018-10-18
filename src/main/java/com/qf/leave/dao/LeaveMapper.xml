@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace表示命名空间，用来标识该Mapper文件-->
+<mapper namespace="com.qf.leave.dao.LeaveMapper">
+    <resultMap type="com.qf.model.Tb_Leave" id="baseResult">
+        <id property="lea_id" column="lea_id"/>
+        <result property="lea_applyID" column="lea_applyID"/>
+        <result property="lea_approveID" column="lea_approveID"/>
+        <result property="lea_startTime" column="lea_startTime"/>
+        <result property="lea_endTime" column="lea_endTime"/>
+        <result property="lea_days" column="lea_days"/>
+        <result property="lea_reason" column="lea_reason"/>
+        <result property="lea_state" column="lea_state"/>
+        <association property="student" javaType="Student">
+            <id property="stu_id" column="stu_id"/>
+            <result property="stu_name" column="stu_name"/>
+        </association>
+    </resultMap>
+    <select id="selectAllByApprove" resultMap="baseResult" >
+        SELECT lea_id,lea_applyID,lea_approveID,lea_startTime,lea_endTime,lea_days,lea_reason,lea_state,stu_name FROM TB_LEAVE LEFT JOIN
+        student ON TB_LEAVE.lea_applyID=student.stu_id where lea_state=0 ORDER by lea_startTime desc
+    </select>
+
+    <select id="selectAllByApply" resultType="Tb_Leave">
+        select lea_id,lea_applyID,lea_approveID,lea_startTime,lea_endTime,lea_days,lea_reason,lea_state from tb_leave where lea_applyID=#{stu_id}
+        ORDER by lea_startTime desc
+    </select>
+    <select id="selectById" resultMap="baseResult">
+        select lea_id,lea_applyID,lea_approveID,lea_startTime,lea_endTime,lea_days,lea_reason,lea_state,stu_name from tb_leave
+        LEFT JOIN student ON TB_LEAVE.lea_applyID=student.stu_id where lea_id=#{lea_id}
+    </select>
+    <select id="selectAllTea" resultType="Teacher">
+        select tea_id,tea_name from teacher
+    </select>
+    <insert id="insertLeave" parameterType="Tb_Leave">
+        insert into tb_leave values(#{lea_id},#{lea_applyID},#{lea_approveID},#{lea_days},#{lea_startTime},#{lea_endTime},#{lea_reason},0)
+    </insert>
+    <update id="updateLeave" parameterType="Tb_Leave">
+        UPDATE tb_leave set lea_state=#{lea_state} where lea_id=#{lea_id}
+    </update>
+</mapper>

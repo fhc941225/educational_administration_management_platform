@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace表示命名空间，用来标识该Mapper文件-->
+<mapper namespace="com.qf.message.dao.MessageMapper">
+    <select id="selectAll" resultType="Message">
+        select mes_id,mes_title,mes_appellation,mes_mainBody,mes_signature,mes_date,mes_state from message where mes_state!=1 order by mes_date desc limit #{offset} ,#{limit}
+    </select>
+
+    <select id="selectById" resultType="Message">
+        select mes_id,mes_title,mes_appellation,mes_mainBody,mes_signature,mes_date,mes_state from message where mes_id=#{mes_id}
+    </select>
+
+    <insert id="insertMessage" parameterType="Message">
+        insert into message values(#{mes_id},#{mes_title},#{mes_appellation},#{mes_mainBody},#{mes_signature},#{mes_date},0)
+    </insert>
+    <update id="deleteMessage">
+        UPDATE message set mes_state=1 where mes_id=#{mes_id}
+    </update>
+    <select id="count" resultType="Long">
+        select count(mes_id) from message where mes_state!=1
+    </select>
+</mapper>

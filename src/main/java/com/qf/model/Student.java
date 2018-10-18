@@ -4,9 +4,9 @@ public class Student {
     private String stu_id;
     private String stu_name;
     private String stu_birthday;
-    private Integer stu_card;
+    private String stu_card;
     private String stu_address;
-    private Integer stu_phone;
+    private String stu_phone;
     private Integer stu_number;
     private String stu_class;
     private String stu_major;
@@ -36,11 +36,11 @@ public class Student {
         this.stu_birthday = stu_birthday;
     }
 
-    public Integer getStu_card() {
+    public String getStu_card() {
         return stu_card;
     }
 
-    public void setStu_card(Integer stu_card) {
+    public void setStu_card(String stu_card) {
         this.stu_card = stu_card;
     }
 
@@ -52,11 +52,11 @@ public class Student {
         this.stu_address = stu_address;
     }
 
-    public Integer getStu_phone() {
+    public String getStu_phone() {
         return stu_phone;
     }
 
-    public void setStu_phone(Integer stu_phone) {
+    public void setStu_phone(String stu_phone) {
         this.stu_phone = stu_phone;
     }
 

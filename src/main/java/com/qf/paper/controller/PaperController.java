@@ -34,8 +34,8 @@ public class PaperController {
     @RequestMapping("/insertPaper")
     public String insertPaper(Paper paper, MultipartFile paper_file, HttpSession session) {
         Student student = (Student) session.getAttribute("student");
-        //paper.setPaper_student(student.getStu_id());
-        paper.setPaper_student("2b0a8763-3cbd-4009-92fd-1cc67b0a8703"); //模拟获取学生id
+        paper.setPaper_student(student.getStu_id());
+        //paper.setPaper_student("2b0a8763-3cbd-4009-92fd-1cc67b0a8703"); //模拟获取学生id
         service.insertPaper(paper,paper_file);
         return "redirect:paper_list_for_student";
     }
@@ -66,8 +66,8 @@ public class PaperController {
     @ResponseBody
     public JSONObject listByStudent(@RequestBody JSONObject jsonObject, HttpSession session){
         Student student = (Student) session.getAttribute("student");
-        //jsonObject.put("studentId",student.getStu_id());
-        jsonObject.put("studentId","2b0a8763-3cbd-4009-92fd-1cc67b0a8703"); //模拟获取学生id
+        jsonObject.put("studentId",student.getStu_id());
+        //jsonObject.put("studentId","2b0a8763-3cbd-4009-92fd-1cc67b0a8703"); //模拟获取学生id
         return service.listByStudent(jsonObject);
     }
 
@@ -76,8 +76,8 @@ public class PaperController {
     @ResponseBody
     public JSONObject listByTeacher(@RequestBody JSONObject jsonObject, HttpSession session){
         Teacher teacher = (Teacher) session.getAttribute("teacher");
-        //jsonObject.put("teacherId",teacher.getTea_id());
-        jsonObject.put("teacherId","84c28f94-d539-4e80-afdf-9bd0905b1d1a"); //模拟获取老师id
+        jsonObject.put("teacherId",teacher.getTea_id());
+        //jsonObject.put("teacherId","84c28f94-d539-4e80-afdf-9bd0905b1d1a"); //模拟获取老师id
         return service.listByTeacher(jsonObject);
     }
 

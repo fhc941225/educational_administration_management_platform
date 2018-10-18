@@ -72,7 +72,7 @@
                     <a href="chart.jsp"><i class="fa fa-bar-chart-o"></i> 我的课程</a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/paper/paper_list_for_teacher"><i class="fa fa-qrcode"></i> 学生论文</a>
+                    <a class="active-menu" href="${pageContext.request.contextPath}/paper/paper_list_for_teacher"><i class="fa fa-qrcode"></i> 学生论文</a>
                 </li>
                 <li>
                     <a href="score_list_for_student"><i class="fa fa-qrcode"></i> 录入成绩</a>
@@ -209,10 +209,17 @@
                     }
                 },
                 formatter: function (value, row, index) {
-                    return ['<div class="btn-group btn-group-sm" role="group">\n',
-                        '<button id="btn_download" type="button" class="btn btn-success">下载</button>\n',
-                        '<button id="btn_modify" type="button" class="btn btn-primary">打分</button>\n',
-                        '</div>'].join('');
+                    if (row.paper_level == 0) {
+                        return ['<div class="btn-group btn-group-sm" role="group">\n',
+                            '<button id="btn_download" type="button" class="btn btn-success">下载</button>\n',
+                            '<button id="btn_modify" type="button" class="btn btn-warning">打分</button>\n',
+                            '</div>'].join('');
+                    } else {
+                        return ['<div class="btn-group btn-group-sm" role="group">\n',
+                            '<button id="btn_download" type="button" class="btn btn-success">下载</button>\n',
+                            '<button id="btn_modify" type="button" class="btn btn-primary">重新打分</button>\n',
+                            '</div>'].join('');
+                    }
                 }
             }]
         });

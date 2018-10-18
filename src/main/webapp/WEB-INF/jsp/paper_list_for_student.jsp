@@ -83,7 +83,7 @@
                     <a href="chart.jsp"><i class="fa fa-bar-chart-o"></i> 课程管理</a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/paper/paper_list_for_student"><i class="fa fa-qrcode"></i> 论文提交</a>
+                    <a class="active-menu" href="${pageContext.request.contextPath}/paper/paper_list_for_student"><i class="fa fa-qrcode"></i> 论文提交</a>
                 </li>
                 <li>
                     <a href="tab-panel.html"><i class="fa fa-qrcode"></i> 成绩查询</a>

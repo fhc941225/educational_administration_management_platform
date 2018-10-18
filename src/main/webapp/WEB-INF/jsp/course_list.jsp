@@ -246,7 +246,7 @@
         return [
             '<button id="btnEdit" class="btn btn-primary" type="button">编辑</button>&nbsp;&nbsp;&nbsp;',
             '<button id="btnDelete" class="btn btn-danger" type="button">删除</button>&nbsp;&nbsp;&nbsp;',
-            '<button id="btnPoint" class="btn btn-success" type="button" onclick="fn()">打分</button>'
+           /* '<button id="btnPoint" class="btn btn-success" type="button" onclick="fn()">打分</button>'*/
         ].join("");
     }
     //成绩操作按钮

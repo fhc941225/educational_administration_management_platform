@@ -31,7 +31,7 @@ public class LeaveController {
             stu_id=student.getStu_id();
         }catch (Exception e){
             e.printStackTrace();
-            return "studentlogin";
+            return "redirect:/stu";
         }
         List<Tb_Leave> leaves=service.findAllByApply(stu_id);
         model.addAttribute("teachers", service.findAllTea());
@@ -61,6 +61,7 @@ public class LeaveController {
             tea_id=teacher.getTea_id();
         }catch (Exception e){
             e.printStackTrace();
+            return "redirect:/tea";
         }
         List<Tb_Leave> leaves=service.findAllByApprove(tea_id);
         model.addAttribute("leaves", leaves);

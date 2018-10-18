@@ -35,8 +35,7 @@ public class Teachersservice implements Teacherservice {
     public int updateByid(Teacher teacher) throws Exception {
         int i = dao.updateByid(teacher);
         return i;
-    }
-    /*修改状态*/
+    }    /*修改状态*/
     @Override
     public void updateBystate(Teacher teacher) throws Exception {
             dao.updateBystate(teacher);

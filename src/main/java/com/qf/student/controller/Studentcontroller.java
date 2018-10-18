@@ -116,7 +116,7 @@ public class Studentcontroller {
             e.printStackTrace();
         }
     }
-    /*添加*/
+   /*添加*/
     @RequestMapping(value = "/insertstudent",method = RequestMethod.POST)
     @ResponseBody
     public void insertstuent(Student student){

@@ -44,8 +44,7 @@
     <!-- 修改状态2 -->
     <update id="updateBystatetwo" parameterType="Student">
         update student set stu_state=2 where stu_id=#{stu_id}
-    </update>
-    <!--通过id-->
+    </update><!--通过id-->
     <select id="selectid" resultType="Student" parameterType="Student">
         select stu_name,stu_birthday,stu_card,stu_address,stu_phone,stu_number,stu_class,stu_major,stu_pwd,stu_state,stu_photo
         from student

@@ -22,8 +22,7 @@
     <!-- 修改 -->
     <update id="updateByid" parameterType="Teacher">
         update  teacher set tea_address=#{tea_address},tea_phone=#{tea_phone},tea_photo=#{tea_photo} where tea_id=#{tea_id}
-    </update>
-    <!-- 修改状态 -->
+    </update>    <!-- 修改状态 -->
     <update id="updateBystate" parameterType="Teacher">
         update  teacher set tea_state=1 where tea_id=#{tea_id}
     </update>

@@ -21,7 +21,6 @@ public interface IStudentservice {
     public void updateBystatetwo(Student student)throws Exception;
     /*登入*/
     public Student selectByname(Student student)throws Exception;
-
     public Student selectid(Student student)throws Exception;
     public int fincunt()throws Exception;
 

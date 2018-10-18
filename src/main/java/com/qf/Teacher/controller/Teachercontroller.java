@@ -36,7 +36,6 @@ public class Teachercontroller {
             return "ok";}
 
         }
-
             return "on";
 
     }

@@ -21,7 +21,7 @@ public interface Studentdao {
     public void updateBystate(Student student)throws Exception;
     /*修改状态2*/
     public void updateBystatetwo(Student student)throws Exception;
-    /*登入*/
+   /*登入*/
     public Student selectByname(Student student)throws Exception;
 
 }

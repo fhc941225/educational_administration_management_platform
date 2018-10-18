@@ -31,8 +31,7 @@ public class Studentservice implements IStudentservice {
     @Override
     public void insertByStudent(Student student) throws Exception {
         dao.insertByStudent(student);
-    }
-    /*通过id修改*/
+    }/*通过id修改*/
     @Override
     public int updateBysid(Student student) throws Exception {
       int  i=dao.updateBysid(student);

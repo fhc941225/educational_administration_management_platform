@@ -15,6 +15,5 @@ public interface Teacherdao {
     public int updateByid(Teacher teacher)throws Exception;
     /*修改状态*/
     public void updateBystate(Teacher teacher)throws Exception;
-
     public  Teacher selectid(Teacher teacher)throws Exception;
 }

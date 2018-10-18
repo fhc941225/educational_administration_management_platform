@@ -12,8 +12,7 @@ public interface Teacherservice {
     /*添加*/
     public void insert(Teacher teacher)throws Exception;
     /*通过id修改*/
-    public int updateByid(Teacher teacher)throws Exception;
-    /*修改状态*/
+    public int updateByid(Teacher teacher)throws Exception;/*修改状态*/
     public void updateBystate(Teacher teacher)throws Exception;
 
     public Teacher selectid(Teacher teacher)throws Exception;

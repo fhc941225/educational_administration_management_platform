@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.student.dao.Studentdao">
+    <!-- 查询所有 -->
+    <select id="selectByAll"  resultType="Student" parameterType="Student">
+        SELECT stu_id,stu_name,stu_birthday,stu_card,stu_address,stu_phone,stu_number,stu_class,stu_major,stu_pwd,stu_state,stu_photo
+        FROM student
+        <where>
+            <if test="search!='' and search!=null">
+                and stu_name like CONCAT('%', #{search}, '%')
+            </if>
+
+        </where>
+        <if test="order!='' and order!=null">
+            order by stu_id ${order}
+        </if>
+        <if test="offset!=null and limit!=null">
+            limit #{offset},#{limit}
+        </if>
+    </select>
+    <select id="fincunt" resultType="java.lang.Integer">
+        select count(*) from student
+    </select>
+    <!-- 通过学号查询 -->
+    <select id="selectBysnumber" resultType="Student" parameterType="Student">
+        SELECT stu_id,stu_name,stu_birthday,stu_card,stu_address,stu_phone,stu_number,stu_class,stu_major,stu_pwd,stu_state,stu_photo
+        FROM student where stu_number=#{stu_number}
+    </select>
+    <!-- 添加 -->
+    <insert id="insertByStudent" parameterType="Student">
+        insert into Student (stu_id,stu_name,stu_birthday,stu_card,stu_address,stu_phone,stu_number,stu_class,stu_major,stu_pwd,stu_state,stu_photo)
+        values (#{stu_id},#{stu_name},#{stu_birthday},#{stu_card},#{stu_address},#{stu_phone},#{stu_number},#{stu_class},#{stu_major},"123456",0,#{stu_photo})
+    </insert>
+    <!-- 修改信息 -->
+    <update id="updateBysid" parameterType="Student">
+        update student set stu_address=#{stu_address},stu_phone=#{stu_phone},stu_photo=#{stu_photo} where stu_id=#{stu_id}
+    </update>
+    <!-- 修改状态 -->
+    <update id="updateBystate" parameterType="Student">
+        update student set stu_state=1 where stu_id=#{stu_id}
+    </update>
+    <!-- 修改状态2 -->
+    <update id="updateBystatetwo" parameterType="Student">
+        update student set stu_state=2 where stu_id=#{stu_id}
+    </update><!--通过id-->
+    <select id="selectid" resultType="Student" parameterType="Student">
+        select stu_name,stu_birthday,stu_card,stu_address,stu_phone,stu_number,stu_class,stu_major,stu_pwd,stu_state,stu_photo
+        from student
+        where stu_id=#{stu_id}
+    </select>
+
+    <!--登入-->
+    <select id="selectByname" parameterType="Student" resultType="Student">
+       SELECT stu_id,stu_name,stu_birthday,stu_card,stu_address,stu_phone,stu_number,stu_class,stu_major,stu_pwd,stu_state,stu_photo
+       FROM student WHERE stu_number=${stu_number} AND stu_pwd=${stu_pwd}
+    </select>
+</mapper>

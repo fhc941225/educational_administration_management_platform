@@ -11,6 +11,15 @@ public class Teacher {
     private String tea_courses;
     private String tea_pwd;
     private Integer tea_state;
+    private String tea_photo;
+
+    public String getTea_photo() {
+        return tea_photo;
+    }
+
+    public void setTea_photo(String tea_photo) {
+        this.tea_photo = tea_photo;
+    }
 
     public String getTea_id() {
         return tea_id;
@@ -92,19 +101,24 @@ public class Teacher {
         this.tea_state = tea_state;
     }
 
+    public Teacher() {
+        super();
+    }
+
     @Override
     public String toString() {
         return "Teacher{" +
                 "tea_id='" + tea_id + '\'' +
-                ", tea_number=" + tea_number +
+                ", tea_number='" + tea_number + '\'' +
                 ", tea_name='" + tea_name + '\'' +
                 ", tea_birthday='" + tea_birthday + '\'' +
-                ", tea_card=" + tea_card +
+                ", tea_card='" + tea_card + '\'' +
                 ", tea_address='" + tea_address + '\'' +
-                ", tea_phone=" + tea_phone +
+                ", tea_phone='" + tea_phone + '\'' +
                 ", tea_courses='" + tea_courses + '\'' +
                 ", tea_pwd='" + tea_pwd + '\'' +
                 ", tea_state=" + tea_state +
+                ", tea_photo='" + tea_photo + '\'' +
                 '}';
     }
 }

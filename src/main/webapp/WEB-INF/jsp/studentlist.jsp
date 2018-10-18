@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <!-- Bootstrap Styles-->
-    <link href="${pageContext.request.contextPath}/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/static/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    <link href="${pageContext.request.contextPath}/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/static/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
-    <link href="${pageContext.request.contextPath}/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/static/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="${pageContext.request.contextPath}/assets/css/custom-styles.css" rel="stylesheet" />
-    <link href="${pageContext.request.contextPath}/assets/css/bootstrap-table.css">
+    <link href="${pageContext.request.contextPath}/static/assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/static/assets/css/bootstrap-table.css">
 
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> 
@@ -227,17 +227,17 @@
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="${pageContext.request.contextPath}/assets/js/jquery-1.10.2.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/static/assets/js/bootstrap.min.js"></script>
 	 
 
 	
 	
 
 
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap-table.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap-table-zh-CN.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/js/bootstrap-table.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/js/bootstrap-table-zh-CN.js"></script>
 
 	
 

@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <!-- Bootstrap Styles-->
-    <link href="${pageContext.request.contextPath}/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/static/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    <link href="${pageContext.request.contextPath}/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/static/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
-    <link href="${pageContext.request.contextPath}/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/static/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="${pageContext.request.contextPath}/assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/static/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> 
      <style type="text/css">
@@ -80,35 +80,25 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="${pageContext.request.contextPath}/tea/teacherpersonalInformation"><i class="fa fa-dashboard"></i> 个人信息</a>
-
-
-
-
+                        <a class="active-menu" href="${pageContext.request.contextPath}/tea/teacherpersonalInformation"><i class="fa fa-dashboard"></i> 个人信息<span class="fa arrow"></span></a>
                     </li>
                     <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> 学校通知</a>
-                    </li>
-					<li>
-                        <a href="chart.jsp"><i class="fa fa-bar-chart-o"></i> 课程管理</a>
+                        <a href="${pageContext.request.contextPath}/message/message_list_for_teacher"><i class="fa fa-desktop"></i> 学校通知</a>
                     </li>
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> 论文提交</a>
+                        <a href="${pageContext.request.contextPath}/course_list"><i class="fa fa-bar-chart-o"></i> 我的课程</a>
                     </li>
-					 <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> 成绩查询</a>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/paper/paper_list_for_teacher"><i class="fa fa-qrcode"></i> 学生论文</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/score_list_for_student"><i class="fa fa-qrcode"></i> 录入成绩</a>
+                    </li>
+                    <li>
+                        <a  href="${pageContext.request.contextPath}/leave/leave_list_for_teacher"><i class="fa fa-qrcode"></i> 休假管理</a>
                     </li>
 
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap"></i>学生休假<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="123">休假列表</a>
-                            </li>
-                            <li>
-                                <a href="">休假申请</a>
-                            </li>
-                        </ul>
+                </ul>
 
                             </li>
                         </ul>
@@ -263,24 +253,24 @@
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="${pageContext.request.contextPath}/assets/js/jquery-1.10.2.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/js/bootstrap.min.js"></script>
 	 
     <!-- Metis Menu Js -->
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.metisMenu.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
-    <script src="${pageContext.request.contextPath}/assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/morris/morris.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/js/morris/morris.js"></script>
 	
 	
-	<script src="${pageContext.request.contextPath}/assets/js/easypiechart.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/easypiechart-data.js"></script>
+	<script src="${pageContext.request.contextPath}/static/assets/js/easypiechart.js"></script>
+	<script src="${pageContext.request.contextPath}/static/assets/js/easypiechart-data.js"></script>
 	
-	 <script src="${pageContext.request.contextPath}/assets/js/Lightweight-Chart/jquery.chart.js"></script>
+	 <script src="${pageContext.request.contextPath}/static/assets/js/Lightweight-Chart/jquery.chart.js"></script>
 	
     <!-- Custom Js -->
-    <script src="${pageContext.request.contextPath}/assets/js/custom-scripts.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/js/custom-scripts.js"></script>
 <script type="text/javascript">
     $('#redact').click(function () {
         $('#myModal').modal();

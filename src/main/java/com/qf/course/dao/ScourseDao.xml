@@ -15,41 +15,43 @@
     
     <select id="haveSelectScount" parameterType="com.alibaba.fastjson.JSONObject" resultType="_long">
         select count(*) from Select_course where stu_number=#{stu_number}
-        <where>
+        <trim prefix="and">
             <if test="search!=null and search!=''">
-                course_name like "%${search}%"
+            course_id in (select course_id from  course where course_name like "%${search}%")
             </if>
-        </where>
+        </trim>
     </select>
 
     <select id="havenotSelectScount" parameterType="com.alibaba.fastjson.JSONObject" resultType="_long">
         select count(*) from course where course_id not in (select course_id from Select_course where stu_number=#{stu_number})
-        <where>
+        <trim prefix="and">
             <if test="search!=null and search!=''">
-                course_name like "%${search}%"
+            course_name like "%${search}%"
             </if>
-        </where>
+        </trim>
     </select>
 
     <select id="haveSelectCourse" parameterType="com.alibaba.fastjson.JSONObject" resultType="Course">
         select course_id,course_name,teacher_id,course_time,class_room,course_week,course_type,course_score from course
         where  course_id in (select  course_id from  Select_course where stu_number=#{stu_number})
-        <where>
+        <trim prefix="and">
             <if test="search!=null and search!=''">
-                course_name like "%${search}%"
+            course_name like "%${search}%"
             </if>
-        </where>
+        </trim>
         limit #{offset},#{limit}
     </select>
 
     <select id="havenotSelectCourse" parameterType="com.alibaba.fastjson.JSONObject" resultType="Course">
         select course_id,course_name,teacher_id,course_time,class_room,course_week,course_type,course_score from course
         where  course_id not in (select  course_id from  Select_course where stu_number=#{stu_number})
-        <where>
+        <trim prefix="and">
             <if test="search!=null and search!=''">
-                course_name like "%${search}%"
+            course_name like "%${search}%"
             </if>
-        </where>
+        </trim>
+
+
         limit #{offset},#{limit}
     </select>
 

@@ -32,7 +32,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="message_list_for_student.jsp"><i class="fa fa-gear"></i>
-                <strong>HYBRID</strong></a>
+                <strong>教务系统</strong></a>
         </div>
         <!-- /.dropdown-alerts -->
 

@@ -11,7 +11,7 @@ public class Student {
     private String stu_class;
     private String stu_major;
     private String stu_pwd;
-    private Integer state;
+    private Integer stu_state;
     private String stu_photo;
 
     public String getStu_photo() {
@@ -102,12 +102,12 @@ public class Student {
         this.stu_pwd = stu_pwd;
     }
 
-    public Integer getState() {
-        return state;
+    public Integer getStu_state() {
+        return stu_state;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setStu_state(Integer stu_state) {
+        this.stu_state = stu_state;
     }
 
     @Override
@@ -123,7 +123,7 @@ public class Student {
                 ", stu_class='" + stu_class + '\'' +
                 ", stu_major='" + stu_major + '\'' +
                 ", stu_pwd='" + stu_pwd + '\'' +
-                ", state=" + state +
+                ", state=" + stu_state +
                 '}';
     }
 }

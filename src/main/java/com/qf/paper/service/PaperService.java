@@ -10,9 +10,6 @@ import java.util.List;
 
 public interface PaperService {
 
-    //文件存放路径
-    String DISK_PATH = "F:/paper/";
-
     void insertPaper(Paper paper, MultipartFile paper_url);
 
     void updatePaper(Paper paper, MultipartFile paper_file);

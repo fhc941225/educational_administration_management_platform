@@ -9,8 +9,13 @@
         <module name="educational_administration_management_platform" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="educational_administration_management_platform" target="1.5" />
+    <bytecodeTargetLevel target="8">
+      <module name="educational_administration_management_platform" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="educational_administration_management_platform" options="" />
+    </option>
   </component>
 </project>

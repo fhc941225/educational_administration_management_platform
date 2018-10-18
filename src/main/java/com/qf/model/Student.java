@@ -7,13 +7,11 @@ public class Student {
     private String stu_card;
     private String stu_address;
     private String stu_phone;
-    private String stu_number;
+    private Integer stu_number;
     private String stu_class;
     private String stu_major;
     private String stu_pwd;
-    private Integer stu_state;
-    private String stu_photo;
-
+    private Integer state;
     public String getStu_id() {
         return stu_id;
     }
@@ -62,11 +60,11 @@ public class Student {
         this.stu_phone = stu_phone;
     }
 
-    public String getStu_number() {
+    public Integer getStu_number() {
         return stu_number;
     }
 
-    public void setStu_number(String stu_number) {
+    public void setStu_number(Integer stu_number) {
         this.stu_number = stu_number;
     }
 
@@ -94,24 +92,12 @@ public class Student {
         this.stu_pwd = stu_pwd;
     }
 
-    public Integer getStu_state() {
-        return stu_state;
+    public Integer getState() {
+        return state;
     }
 
-    public void setStu_state(Integer stu_state) {
-        this.stu_state = stu_state;
-    }
-
-    public String getStu_photo() {
-        return stu_photo;
-    }
-
-    public void setStu_photo(String stu_photo) {
-        this.stu_photo = stu_photo;
-    }
-
-    public Student() {
-        super();
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     @Override
@@ -120,15 +106,14 @@ public class Student {
                 "stu_id='" + stu_id + '\'' +
                 ", stu_name='" + stu_name + '\'' +
                 ", stu_birthday='" + stu_birthday + '\'' +
-                ", stu_card='" + stu_card + '\'' +
+                ", stu_card=" + stu_card +
                 ", stu_address='" + stu_address + '\'' +
-                ", stu_phone='" + stu_phone + '\'' +
-                ", stu_number='" + stu_number + '\'' +
+                ", stu_phone=" + stu_phone +
+                ", stu_number=" + stu_number +
                 ", stu_class='" + stu_class + '\'' +
                 ", stu_major='" + stu_major + '\'' +
                 ", stu_pwd='" + stu_pwd + '\'' +
-                ", stu_state=" + stu_state +
-                ", stu_photo='" + stu_photo + '\'' +
+                ", state=" + state +
                 '}';
     }
 }

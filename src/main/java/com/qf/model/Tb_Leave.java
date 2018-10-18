@@ -1,6 +1,6 @@
 package com.qf.model;
 
-public class Leave {
+public class Tb_Leave {
     private String lea_id;
     private String lea_applyID;
     private String lea_approveID;
@@ -9,6 +9,7 @@ public class Leave {
     private String lea_endTime;
     private String lea_reason;
     private Integer lea_state;
+    private Student student;
 
     public String getLea_id() {
         return lea_id;
@@ -74,9 +75,17 @@ public class Leave {
         this.lea_state = lea_state;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
     @Override
     public String toString() {
-        return "Leave{" +
+        return "Tb_Leave{" +
                 "lea_id='" + lea_id + '\'' +
                 ", lea_applyID='" + lea_applyID + '\'' +
                 ", lea_approveID='" + lea_approveID + '\'' +

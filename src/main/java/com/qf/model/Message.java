@@ -7,6 +7,7 @@ public class Message {
     private String mes_mainBody;
     private String mes_signature;
     private String mes_date;
+    private Integer mes_state;
 
     public String getMes_id() {
         return mes_id;
@@ -54,6 +55,14 @@ public class Message {
 
     public void setMes_date(String mes_date) {
         this.mes_date = mes_date;
+    }
+
+    public Integer getMes_state() {
+        return mes_state;
+    }
+
+    public void setMes_state(Integer mes_state) {
+        this.mes_state = mes_state;
     }
 
     @Override

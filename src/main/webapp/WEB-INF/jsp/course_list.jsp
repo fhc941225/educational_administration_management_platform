@@ -73,26 +73,24 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="message_list_for_student.jsp"><i class="fa fa-dashboard"></i> 个人信息</a>
+                    <a href="${pageContext.request.contextPath}/tea/teacherpersonalInformation"><i class="fa fa-dashboard"></i> 个人信息</a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/message/message_list_for_student"><i
-                            class="fa fa-desktop"></i> 学校通知</a>
+                    <a href="${pageContext.request.contextPath}/message/message_list_for_teacher"><i class="fa fa-desktop"></i> 学校通知</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="${pageContext.request.contextPath}/course_list"><i class="fa fa-bar-chart-o"></i>
-                        课程管理</a>
+                    <a href="${pageContext.request.contextPath}/course_list"><i class="fa fa-bar-chart-o"></i> 我的课程</a>
                 </li>
                 <li>
-                    <a href="tab-panel.html"><i class="fa fa-qrcode"></i> 论文提交</a>
+                    <a class="active-menu" href="${pageContext.request.contextPath}/paper/paper_list_for_teacher"><i class="fa fa-qrcode"></i> 学生论文</a>
                 </li>
                 <li>
-                    <a href="score_list_for_student"><i class="fa fa-qrcode"></i> 成绩查询</a>
+                    <a href="${pageContext.request.contextPath}/score_list_for_student"><i class="fa fa-qrcode"></i> 录入成绩</a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/leave/leave_list_for_student"><i
-                            class="fa fa-qrcode"></i> 学生休假</a>
+                    <a href="${pageContext.request.contextPath}/leave/leave_list_for_teacher"><i class="fa fa-qrcode"></i> 休假管理</a>
                 </li>
+
             </ul>
         </div>
     </nav>

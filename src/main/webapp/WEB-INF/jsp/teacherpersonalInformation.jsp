@@ -133,7 +133,7 @@
                           <div class="form-group">
                                   <label for="tea_birthday" class="col-sm-2 control-label">教师出生日:</label>
                                   <div class="col-sm-5">
-                                      <input type="date" class="form-control" id="tea_birthday" readonly placeholder="${teacher.tea_birthday}">
+                                      <input type="text" class="form-control" id="tea_birthday" readonly placeholder="${teacher.tea_birthday}">
                                   </div>
                               </div>
                           <div class="form-group">

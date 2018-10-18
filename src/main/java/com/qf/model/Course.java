@@ -1,20 +1,20 @@
 package com.qf.model;
 
 public class Course {
-    private String course_id;
+    private Integer course_id;
     private String course_name;
     private String teacher_id;
     private String course_time;
-    private String course_room;
+    private String class_room;
     private String course_week;
     private String course_type;
-    private Integer score;
+    private Integer course_score;
 
-    public String getCourse_id() {
+    public Integer getCourse_id() {
         return course_id;
     }
 
-    public void setCourse_id(String course_id) {
+    public void setCourse_id(Integer course_id) {
         this.course_id = course_id;
     }
 
@@ -42,12 +42,12 @@ public class Course {
         this.course_time = course_time;
     }
 
-    public String getCourse_room() {
-        return course_room;
+    public String getClass_room() {
+        return class_room;
     }
 
-    public void setCourse_room(String course_room) {
-        this.course_room = course_room;
+    public void setClass_room(String class_room) {
+        this.class_room = class_room;
     }
 
     public String getCourse_week() {
@@ -66,12 +66,12 @@ public class Course {
         this.course_type = course_type;
     }
 
-    public Integer getScore() {
-        return score;
+    public Integer getCourse_score() {
+        return course_score;
     }
 
-    public void setScore(Integer score) {
-        this.score = score;
+    public void setCourse_score(Integer course_score) {
+        this.course_score = course_score;
     }
 
     @Override
@@ -81,10 +81,10 @@ public class Course {
                 ", course_name='" + course_name + '\'' +
                 ", teacher_id='" + teacher_id + '\'' +
                 ", course_time='" + course_time + '\'' +
-                ", course_room='" + course_room + '\'' +
+                ", course_room='" + class_room + '\'' +
                 ", course_week='" + course_week + '\'' +
                 ", course_type='" + course_type + '\'' +
-                ", score=" + score +
+                ", course_score=" + course_score +
                 '}';
     }
 }

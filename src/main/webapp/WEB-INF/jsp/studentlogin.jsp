@@ -79,7 +79,7 @@
                 url: "${pageContext.request.contextPath}/stu",
                 success: function(src) {
                     if(src=="ok"){
-                        alert("登入成功")
+
                         location.href="${pageContext.request.contextPath}/stu/personalInformation";
                     }else{
 

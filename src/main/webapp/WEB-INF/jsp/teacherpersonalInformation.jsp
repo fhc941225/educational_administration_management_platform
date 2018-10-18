@@ -282,7 +282,7 @@
 
         $("#redact2").click(function () {
             var pname = $("#myform2").serialize();
-                alert(pname);
+
             $.ajax({
                 url: '${pageContext.request.contextPath}/tea/edit',
                 data: pname,

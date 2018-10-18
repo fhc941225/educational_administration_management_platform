@@ -2,7 +2,7 @@ package com.qf.model;
 
 public class Teacher {
     private String tea_id;
-    private Integer tea_number;
+    private String tea_number;
     private String tea_name;
     private String tea_birthday;
     private String tea_card;
@@ -20,11 +20,11 @@ public class Teacher {
         this.tea_id = tea_id;
     }
 
-    public Integer getTea_number() {
+    public String getTea_number() {
         return tea_number;
     }
 
-    public void setTea_number(Integer tea_number) {
+    public void setTea_number(String tea_number) {
         this.tea_number = tea_number;
     }
 

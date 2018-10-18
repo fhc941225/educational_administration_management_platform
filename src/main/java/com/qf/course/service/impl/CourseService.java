@@ -41,7 +41,7 @@ public class CourseService implements ICourseService {
     public JSONObject CourseList(JSONObject jsonObject) {
         long count = courseDao.selectCount(jsonObject);
         List<Course> courses = courseDao.selectByLimitAndSearch(jsonObject);
-        System.out.println(courses);
+        //System.out.println(courses);
         jsonObject.put("total",count);
         jsonObject.put("rows",courses);
         return jsonObject;

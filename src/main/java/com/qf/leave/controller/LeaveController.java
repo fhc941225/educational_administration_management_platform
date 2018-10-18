@@ -25,8 +25,14 @@ public class LeaveController {
         /*Student student2=new Student();
         student2.setStu_id("52f5daee-c4da-4753-b2fc-efe5f18b98b1");
         session.setAttribute("student",student2);*/
-        Student student=(Student)session.getAttribute("student");
-        String stu_id=student.getStu_id();
+        String stu_id=null;
+        try{
+            Student student=(Student)session.getAttribute("student");
+            stu_id=student.getStu_id();
+        }catch (Exception e){
+            e.printStackTrace();
+            return "redirect:/stu";
+        }
         List<Tb_Leave> leaves=service.findAllByApply(stu_id);
         model.addAttribute("teachers", service.findAllTea());
         model.addAttribute("leaves",leaves);
@@ -49,8 +55,15 @@ public class LeaveController {
         /*Teacher teacher2=new Teacher();
         teacher2.setTea_id("52f5daee-c4da-4753-b2fc-efe5fsjwmcb1");
         session.setAttribute("teacher", teacher2);*/
-        Teacher teacher=(Teacher)session.getAttribute("teacher");
-        List<Tb_Leave> leaves=service.findAllByApprove(teacher.getTea_id());
+        String tea_id=null;
+        try{
+            Teacher teacher=(Teacher)session.getAttribute("teacher");
+            tea_id=teacher.getTea_id();
+        }catch (Exception e){
+            e.printStackTrace();
+            return "redirect:/tea";
+        }
+        List<Tb_Leave> leaves=service.findAllByApprove(tea_id);
         model.addAttribute("leaves", leaves);
         return "leave_list_for_teacher";
     }

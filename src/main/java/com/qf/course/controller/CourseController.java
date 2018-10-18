@@ -95,7 +95,7 @@ public class CourseController {
     @ResponseBody
     @RequestMapping(value = "/scourse/{course_id}", method = RequestMethod.DELETE)
     public int deleteScourse(@PathVariable int course_id, HttpSession session) {
-        Student stu = (Student) session.getAttribute("Student");
+        Student stu = (Student) session.getAttribute("student");
         Select_course select_course = new Select_course();
         select_course.setStu_number(stu.getStu_number());
         //select_course.setStu_number(201801010);
@@ -110,7 +110,7 @@ public class CourseController {
     @RequestMapping(value = "/haveScourses", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public JSONObject allHaveScourse(@RequestBody JSONObject jsonObject, HttpSession session) {
         //System.out.println(courseService.CourseList(jsonObject));
-        Student stu = (Student) session.getAttribute("Student");
+        Student stu = (Student) session.getAttribute("student");
         jsonObject.put("stu_number", stu.getStu_number());
         jsonObject = scService.haveSelectScourseList(jsonObject);
 
@@ -122,7 +122,7 @@ public class CourseController {
     @RequestMapping(value = "/haveNotScourses", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public JSONObject allHaveNotScourse(@RequestBody JSONObject jsonObject, HttpSession session) {
         //System.out.println(courseService.CourseList(jsonObject));
-        Student stu = (Student) session.getAttribute("Student");
+        Student stu = (Student) session.getAttribute("student");
         jsonObject.put("stu_number", stu.getStu_number());
         jsonObject = scService.havenotSelectScourseList(jsonObject);
         return jsonObject;

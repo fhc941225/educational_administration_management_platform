@@ -128,7 +128,7 @@
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!--模态框-->
-    <div class="modal c" id="myModal">
+    <div class="modal" id="myModal">
         <div class="modal-dialog modal-lg  ">
             <div class="modal-content">
                 <div class="modal-header ">
@@ -215,7 +215,7 @@
     <!-- jQuery Js -->
     <script src="${pageContext.request.contextPath}/static/assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
-    <script src="${pageContext.request.contextPath}/static/static/assets/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/js/bootstrap.min.js"></script>
 	 
 
 	

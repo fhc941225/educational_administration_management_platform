@@ -20,7 +20,7 @@
     </resultMap>
     <select id="selectAllByApprove" resultMap="baseResult" >
         SELECT lea_id,lea_applyID,lea_approveID,lea_startTime,lea_endTime,lea_days,lea_reason,lea_state,stu_name FROM TB_LEAVE LEFT JOIN
-        student ON TB_LEAVE.lea_applyID=student.stu_id where lea_state=0 ORDER by lea_startTime desc
+        student ON TB_LEAVE.lea_applyID=student.stu_id where lea_state=0 and lea_approveID=#{lea_approveID} ORDER by lea_startTime desc
     </select>
 
     <select id="selectAllByApply" resultType="Tb_Leave">

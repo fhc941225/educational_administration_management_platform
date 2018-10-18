@@ -80,7 +80,7 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="${pageContext.request.contextPath}/tea/teacherpersonalInformation"><i class="fa fa-dashboard"></i> 个人信息<span class="fa arrow"></span></a>
+                        <a class="active-menu" href="${pageContext.request.contextPath}/tea/teacherpersonalInformation"><i class="fa fa-dashboard"></i> 个人信息</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/message/message_list_for_teacher"><i class="fa fa-desktop"></i> 学校通知</a>
@@ -133,7 +133,7 @@
                           <div class="form-group">
                                   <label for="tea_birthday" class="col-sm-2 control-label">教师出生日:</label>
                                   <div class="col-sm-5">
-                                      <input type="date" class="form-control" id="tea_birthday" readonly placeholder="${teacher.tea_birthday}">
+                                      <input type="text" class="form-control" id="tea_birthday" readonly placeholder="${teacher.tea_birthday}">
                                   </div>
                               </div>
                           <div class="form-group">

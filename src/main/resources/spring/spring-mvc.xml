@@ -32,7 +32,7 @@
             <value>4096</value>
         </property>
     </bean>
-    <!--配置视图解析器 Controller  hello(){return "index"}  转发：/WEB-INF/jsp/index.jsp -->
+    <!--配置视图解析器  -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>

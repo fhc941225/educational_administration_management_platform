@@ -82,37 +82,23 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="index.jsp"><i class="fa fa-dashboard"></i> 个人信息</a>
-
-
-
-
+                        <a class="active-menu" href="${pageContext.request.contextPath}/tea/teacherpersonalInformation"><i class="fa fa-dashboard"></i> 个人信息</a>
                     </li>
                     <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> 学校通知</a>
-                    </li>
-					<li>
-                        <a href="chart.jsp"><i class="fa fa-bar-chart-o"></i> 课程管理</a>
+                        <a href="${pageContext.request.contextPath}/message/message_list_for_teacher"><i class="fa fa-desktop"></i> 学校通知</a>
                     </li>
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> 论文提交</a>
+                        <a href="${pageContext.request.contextPath}/course_list"><i class="fa fa-bar-chart-o"></i> 我的课程</a>
                     </li>
-					 <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> 成绩查询</a>
-                    </li>
-
                     <li>
-                        <a href="#"><i class="fa fa-sitemap"></i>学生休假<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="123">休假列表</a>
-                            </li>
-                            <li>
-                                <a href="">休假申请</a>
-                            </li>
-                        </ul>
-
-                            </li>
+                        <a href="${pageContext.request.contextPath}/paper/paper_list_for_teacher"><i class="fa fa-qrcode"></i> 学生论文</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/score_list_for_student"><i class="fa fa-qrcode"></i> 录入成绩</a>
+                    </li>
+                    <li>
+                        <a  href="${pageContext.request.contextPath}/leave/leave_list_for_teacher"><i class="fa fa-qrcode"></i> 休假管理</a>
+                    </li>
                         </ul>
                     </li>
                   
@@ -285,6 +271,18 @@
 
             },{
                 field:'stu_state',
+                formatter:function(value){
+                    if(value==0){
+                        return "在校"
+                    }
+                    if(value==1){
+                        return "毕业"
+                    }
+                    if(value==2){
+                        return "开除"
+                    }
+
+                },
                 title:'状态'
 
             },{

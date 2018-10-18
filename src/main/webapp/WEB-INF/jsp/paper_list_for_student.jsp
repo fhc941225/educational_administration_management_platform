@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.jsp"><i class="fa fa-gear"></i> <strong>HYBRID</strong></a>
+            <a class="navbar-brand" href="#"><i class="fa fa-gear"></i> <strong>教务系统</strong></a>
         </div>
         <!-- /.dropdown-alerts -->
 
@@ -74,19 +74,19 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="index.jsp"><i class="fa fa-dashboard"></i> 个人信息</a>
+                    <a href="${pageContext.request.contextPath}/stu/personalInformation"><i class="fa fa-dashboard"></i> 个人信息</a>
                 </li>
                 <li>
-                    <a href="ui-elements.html"><i class="fa fa-desktop"></i> 学校通知</a>
+                    <a  href="${pageContext.request.contextPath}/message/message_list_for_student"><i class="fa fa-desktop"></i> 学校通知</a>
                 </li>
                 <li>
-                    <a href="chart.jsp"><i class="fa fa-bar-chart-o"></i> 课程管理</a>
+                    <a href="${pageContext.request.contextPath}/stu_course_list"><i class="fa fa-bar-chart-o"></i> 课程管理</a>
                 </li>
                 <li>
                     <a class="active-menu" href="${pageContext.request.contextPath}/paper/paper_list_for_student"><i class="fa fa-qrcode"></i> 论文提交</a>
                 </li>
                 <li>
-                    <a href="tab-panel.html"><i class="fa fa-qrcode"></i> 成绩查询</a>
+                    <a href="${pageContext.request.contextPath}/score_list_for_student"><i class="fa fa-qrcode"></i> 成绩查询</a>
                 </li>
                 <li>
                     <a href="${pageContext.request.contextPath}/leave/leave_list_for_student"><i class="fa fa-qrcode"></i> 学生休假</a>
@@ -289,11 +289,19 @@
                     }
                 },
                 formatter: function (value, row, index) {
-                    return ['<div class="btn-group btn-group-sm" role="group">\n',
-                        '<button id="btn_download" type="button" class="btn btn-success">下载</button>\n',
-                        '<button id="btn_modify" type="button" class="btn btn-primary">修改</button>\n',
-                        '<button id="btn_delete" type="button" class="btn btn-danger">删除</button>\n',
-                        '</div>'].join('');
+                    if (row.paper_level == 0) {
+                        return ['<div class="btn-group btn-group-sm" role="group">\n',
+                            '<button id="btn_download" type="button" class="btn btn-success">下载</button>\n',
+                            '<button id="btn_modify" type="button" class="btn btn-primary">修改</button>\n',
+                            '<button id="btn_delete" type="button" class="btn btn-danger">删除</button>\n',
+                            '</div>'].join('');
+                    } else {
+                        return ['<div class="btn-group btn-group-sm" role="group">\n',
+                            '<button id="btn_download" type="button" class="btn btn-success">下载</button>\n',
+                            '<button id="btn_modify" type="button" class="btn btn-primary disabled">修改</button>\n',
+                            '<button id="btn_delete" type="button" class="btn btn-danger disabled">删除</button>\n',
+                            '</div>'].join('');
+                    }
                 }
             }]
         });

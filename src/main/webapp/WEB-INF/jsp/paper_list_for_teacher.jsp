@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>学生论文</title>
     <!-- Bootstrap Styles-->
     <link href="../static/assets/css/bootstrap.css" rel="stylesheet" />
     <link href="../static/assets/css/bootstrap-table.css" rel="stylesheet" />
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="message_list_for_student.jsp"><i class="fa fa-gear"></i> <strong>HYBRID</strong></a>
+            <a class="navbar-brand" href="#"><i class="fa fa-gear"></i> <strong>教务系统</strong></a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
@@ -63,23 +63,24 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="message_list_for_student.jsp"><i class="fa fa-dashboard"></i> 个人信息</a>
+                    <a href="${pageContext.request.contextPath}/tea/teacherpersonalInformation"><i class="fa fa-dashboard"></i> 个人信息</a>
                 </li>
                 <li>
                     <a href="${pageContext.request.contextPath}/message/message_list_for_teacher"><i class="fa fa-desktop"></i> 学校通知</a>
                 </li>
                 <li>
-                    <a href="chart.jsp"><i class="fa fa-bar-chart-o"></i> 我的课程</a>
+                    <a href="${pageContext.request.contextPath}/course_list"><i class="fa fa-bar-chart-o"></i> 我的课程</a>
                 </li>
                 <li>
                     <a class="active-menu" href="${pageContext.request.contextPath}/paper/paper_list_for_teacher"><i class="fa fa-qrcode"></i> 学生论文</a>
                 </li>
                 <li>
-                    <a href="score_list_for_student"><i class="fa fa-qrcode"></i> 录入成绩</a>
+                    <a href="${pageContext.request.contextPath}/score_list_for_student"><i class="fa fa-qrcode"></i> 录入成绩</a>
                 </li>
                 <li>
                     <a href="${pageContext.request.contextPath}/leave/leave_list_for_teacher"><i class="fa fa-qrcode"></i> 休假管理</a>
                 </li>
+
             </ul>
         </div>
     </nav>
@@ -211,13 +212,13 @@
                 formatter: function (value, row, index) {
                     if (row.paper_level == 0) {
                         return ['<div class="btn-group btn-group-sm" role="group">\n',
-                            '<button id="btn_download" type="button" class="btn btn-success">下载</button>\n',
-                            '<button id="btn_modify" type="button" class="btn btn-warning">打分</button>\n',
+                            '<button id="btn_download" type="button" class="btn btn-success">下载论文</button>\n',
+                            '<button id="btn_modify" type="button" class="btn btn-primary">论文打分</button>\n',
                             '</div>'].join('');
                     } else {
                         return ['<div class="btn-group btn-group-sm" role="group">\n',
-                            '<button id="btn_download" type="button" class="btn btn-success">下载</button>\n',
-                            '<button id="btn_modify" type="button" class="btn btn-primary">重新打分</button>\n',
+                            '<button id="btn_download" type="button" class="btn btn-success">下载论文</button>\n',
+                            '<button id="btn_modify" type="button" class="btn btn-warning">重新打分</button>\n',
                             '</div>'].join('');
                     }
                 }

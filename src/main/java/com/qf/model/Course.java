@@ -1,20 +1,37 @@
 package com.qf.model;
 
 public class Course {
-    private Integer course_id;
+    private String course_id;
     private String course_name;
     private String teacher_id;
     private String course_time;
     private String class_room;
     private String course_week;
     private String course_type;
-    private Integer course_score;
+    private Integer score;
+    private Integer grade;
 
-    public Integer getCourse_id() {
+    public String getClass_room() {
+        return class_room;
+    }
+
+    public void setClass_room(String class_room) {
+        this.class_room = class_room;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
+    public String getCourse_id() {
         return course_id;
     }
 
-    public void setCourse_id(Integer course_id) {
+    public void setCourse_id(String course_id) {
         this.course_id = course_id;
     }
 
@@ -42,13 +59,6 @@ public class Course {
         this.course_time = course_time;
     }
 
-    public String getClass_room() {
-        return class_room;
-    }
-
-    public void setClass_room(String class_room) {
-        this.class_room = class_room;
-    }
 
     public String getCourse_week() {
         return course_week;
@@ -66,12 +76,12 @@ public class Course {
         this.course_type = course_type;
     }
 
-    public Integer getCourse_score() {
-        return course_score;
+    public Integer getScore() {
+        return score;
     }
 
-    public void setCourse_score(Integer course_score) {
-        this.course_score = course_score;
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
     @Override
@@ -84,7 +94,7 @@ public class Course {
                 ", course_room='" + class_room + '\'' +
                 ", course_week='" + course_week + '\'' +
                 ", course_type='" + course_type + '\'' +
-                ", course_score=" + course_score +
+                ", score=" + score +
                 '}';
     }
 }

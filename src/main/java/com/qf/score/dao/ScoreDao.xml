@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.score.dao.ScoreDao">
+
+
+
+    <select id = "count" resultType="Long" parameterType="com.alibaba.fastjson.JSONObject" >
+        select count(*) from Select_course where select_course.course_id = #{course_id}
+
+
+
+    </select>
+
+    <!-- OGNL表达式
+        传过来的值:1.简单类型(八种基本类型+string型),#{}中参数的命名可以自定义
+                2.pojo(javabean)参数,#{}中参数的名称必须是javabean对象中get方法的后缀一致(字母小写)
+     -->
+
+    <!--  改-->
+    <select id="update" parameterType="com.qf.model.Select_course">
+ 		update select_course set grade = #{grade}  where stu_number = #{stu_number} and course_id = #{course_id}
+ 	</select>
+
+    <!-- 查所有 -->
+    <!--<select id="selectAll" parameterType="com.alibaba.fastjson.JSONObject" resultType="com.qf.model.Select_course">-->
+        <!--SELECT course_id,course_name,course_time,class_room from course-->
+        <!--left join teacher-->
+        <!--on teacher.tea_number = course.teacher_id-->
+        <!--where teacher_id = #{tea_number}-->
+
+        <!--limit #{offset},#{limit}-->
+    <!--</select>-->
+
+    <!--结果集-->
+    <!--<resultMap id="ResultMap" type="Select_course">-->
+        <!--<id column="course_id" property="course_id"/>-->
+
+        <!--<result column="stu_number" property="stu_number"/>-->
+        <!--<result column="grade" property="grade"/>-->
+
+        <!--<association property="course" javaType="Course">-->
+            <!--<id column="course_id" property="course_id"/>-->
+            <!--<result column="course_name" property="course_name"/>-->
+        <!--</association>-->
+
+    <!--</resultMap>-->
+
+
+
+
+
+
+    <!--查自己的成绩-->
+    <select id="selectStu" parameterType="com.alibaba.fastjson.JSONObject" resultType="com.qf.model.Course">
+    SELECT course_name,grade
+    FROM course LEFT JOIN select_course
+    ON course.course_id=select_course.course_id
+    WHERE stu_number = #{stu_number}
+
+    </select>
+
+    <!--查教授的课程-->
+    <select id="selectAll" parameterType="com.alibaba.fastjson.JSONObject" resultType="com.qf.model.Course">
+        select course_name,class_room,course_time,course_id
+        from course where teacher_id = #{tea_number}
+
+    </select>
+
+    <!--查询自己的学生的成绩-->
+    <select id="selectMyStu" parameterType="com.alibaba.fastjson.JSONObject" resultMap="resultMyStu">
+    SELECT sc.stu_number,sc.grade,s.stu_name
+    FROM select_course sc
+    LEFT JOIN student s
+    ON sc.stu_number = s.stu_number
+    where sc.course_id = #{course_id}
+
+    </select>
+
+    <!--联合查询的结果集-->
+    <resultMap id="resultMyStu" type="Select_course">
+        <id column="stu_number" property="stu_number"/>
+        <id column="course_id" property="course_id"/>
+        <result column="grade" property="grade"/>
+
+        <association property="student" javaType="Student">
+
+            <result column="stu_name" property="stu_name"/>
+        </association>
+
+    </resultMap>
+
+</mapper>

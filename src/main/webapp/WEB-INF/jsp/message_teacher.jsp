@@ -110,7 +110,7 @@
                     <a href="${pageContext.request.contextPath}/paper/paper_list_for_teacher"><i class="fa fa-qrcode"></i> 学生论文</a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/score_list_for_student"><i class="fa fa-qrcode"></i> 录入成绩</a>
+                    <a href="${pageContext.request.contextPath}/score_list_for_teacher"><i class="fa fa-qrcode"></i> 录入成绩</a>
                 </li>
                 <li>
                     <a  href="${pageContext.request.contextPath}/leave/leave_list_for_teacher"><i class="fa fa-qrcode"></i> 休假管理</a>

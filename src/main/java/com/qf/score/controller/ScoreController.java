@@ -24,12 +24,6 @@ public class ScoreController {
         return "index";
     }
 
-    @RequestMapping(value = "/{path}",method = RequestMethod.GET)
-    public String toPage(@PathVariable String path){
-
-        return path;
-    }
-
 
     @RequestMapping(value = "/score_list_for_teacher2/{course_id}",method = RequestMethod.GET)
     public String toTeacher2(@PathVariable int course_id, Model model){

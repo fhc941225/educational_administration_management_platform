@@ -41,4 +41,24 @@
     <!--url路径如下：http://localhost:81/manager/css/hello.css-->
     <!--静态资源放行：http://localhost:81/manager/css/hello.css本来是要经过contrller,但是配置了这句话，配置完了以后，直接去寻找webapp/css/hello.css-->
     <mvc:resources mapping="/static/**" location="/static/"/>
+
+    <!-- 配置自定义拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--
+                /**:表示匹配所有url
+                /user/*:匹配特定路径下的url
+                /user/**:匹配特定路径下,更深路径的url
+             -->
+            <mvc:mapping path="/**"/>
+            <!--exclude-mapping表示对该url不做拦截-->
+            <mvc:exclude-mapping path="/static/**"/>
+            <mvc:exclude-mapping path="/"/>
+            <mvc:exclude-mapping path="/index"/>
+            <mvc:exclude-mapping path="/stu"/>
+            <mvc:exclude-mapping path="/tea"/>
+            <!-- 拦截器 -->
+            <bean class="com.qf.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

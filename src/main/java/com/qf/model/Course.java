@@ -8,7 +8,7 @@ public class Course {
     private String class_room;
     private String course_week;
     private String course_type;
-    private Integer score;
+    private Integer course_score;
     private Integer grade;
 
     public String getClass_room() {
@@ -76,12 +76,12 @@ public class Course {
         this.course_type = course_type;
     }
 
-    public Integer getScore() {
-        return score;
+    public Integer getCourse_score() {
+        return course_score;
     }
 
-    public void setScore(Integer score) {
-        this.score = score;
+    public void setCourse_score(Integer course_score) {
+        this.course_score = course_score;
     }
 
     @Override
@@ -91,10 +91,11 @@ public class Course {
                 ", course_name='" + course_name + '\'' +
                 ", teacher_id='" + teacher_id + '\'' +
                 ", course_time='" + course_time + '\'' +
-                ", course_room='" + class_room + '\'' +
+                ", class_room='" + class_room + '\'' +
                 ", course_week='" + course_week + '\'' +
                 ", course_type='" + course_type + '\'' +
-                ", score=" + score +
+                ", course_score=" + course_score +
+                ", grade=" + grade +
                 '}';
     }
 }

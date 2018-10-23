@@ -285,7 +285,6 @@ $('#redact').click(function () {
 
     $("#redact2").click(function () {
         var pname = $("#myform2").serialize();
-            alert(pname);
         $.ajax({
             url: '${pageContext.request.contextPath}/stu/edit',
             data: pname,
